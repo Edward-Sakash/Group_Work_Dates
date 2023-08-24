@@ -1,13 +1,21 @@
 import datetime
-from task_0 import get_birthday
-
+from task_0 import extract_birthday
 
 def day_num_in_year(date_string):
     """
-    It returns day number of the birthday in the current year
-    :param date_string:<str> birthdate in the format Year-Month-Day
-    :return: <int> The day number
+    Returns the day number of the birthday in the current year.
+
+    :param date_string: A string in the format "Year-Month-Day"
+    :return: The day number of the birthday
     """
-    # Write you code here
-    pass
+    # Get the birthday datetime object with the current year
+    birthday = extract_birthday(date_string)
+    
+    # Get the day number of the year using the `timetuple()` method
+    day_number = birthday.timetuple().tm_yday
+    
+    return day_number
+
+"""day_number = day_num_in_year("2000-03-15")
+print(day_number)"""
 

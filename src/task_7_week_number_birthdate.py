@@ -1,15 +1,20 @@
 import datetime
 
-
 def week_number(date_string, date_format):
     """
-    This function will return the week number of the birthdate
+    Returns the week number of the birthdate in the birth year.
 
-    :param date_string: <str> The date of birth in the format "Year-Month-Day"
-    :param date_format: <str> The format of the date e.g: "%d/%m/%Y"
-    :return: the number of weeks since date_string until today
+    :param date_string: The birthdate in the format "Year-Month-Day"
+    :param date_format: The format of the date, e.g., "%d/%m/%Y"
+    :return: The week number of the birthdate
     """
-    # Write you code here
-    pass
+    # Convert the input string to a datetime object using the provided date format
+    birthdate = datetime.datetime.strptime(date_string, date_format)
+    
+    # Get the ISO calendar week number of the birthdate
+    week_number = birthdate.isocalendar()[1]
+    
+    return week_number
 
-
+week_num = week_number("2000-03-15", "%Y-%m-%d")
+print("Week number:", week_num)
